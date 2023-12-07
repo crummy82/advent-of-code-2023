@@ -31,7 +31,7 @@ def main():
         for part_num in range(2, pipe):
             winning_nums.append(int(parts[part_num]))
 
-        for part_num in range(pipe + 1, 38):
+        for part_num in range(pipe + 1, len(parts)):
             if int(parts[part_num]) in winning_nums:
                 matches += 1
 
