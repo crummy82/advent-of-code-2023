@@ -26,11 +26,12 @@ def main():
         winning_nums = []
         card_num = re.search(r'\d+(?=:)', line)
         parts = line.split()
+        pipe = parts.index("|")
 
-        for part_num in range(2, 12):
+        for part_num in range(2, pipe):
             winning_nums.append(int(parts[part_num]))
 
-        for part_num in range(13, 38):
+        for part_num in range(pipe + 1, 38):
             if int(parts[part_num]) in winning_nums:
                 matches += 1
 
@@ -54,4 +55,3 @@ if __name__ == "__main__":
     main()
     t2 = time.perf_counter()
     logger.info("Execution time: %0.4f seconds", t2 - t1)
-
