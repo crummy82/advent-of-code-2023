@@ -8,14 +8,14 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 
 SCRIPT_DIR = Path(__file__).parent
-INPUT_FILE = Path(SCRIPT_DIR, "input/sample_input.txt")
-# INPUT_FILE = Path(SCRIPT_DIR, "input/input.txt")
+INPUT_FILE = Path(SCRIPT_DIR, "sample_input.txt")
+# INPUT_FILE = Path(SCRIPT_DIR, "input.txt")
 
 def main():
     with open(INPUT_FILE, mode="rt") as f:
         data = f.read().splitlines()
         
-    logger.debug(data)
+    #logger.debug(data)
 
 if __name__ == "__main__":
     t1 = time.perf_counter()
