@@ -13,13 +13,6 @@ INPUT_FILE = Path(SCRIPT_DIR, "input.txt")
 instructions = {}
 
 
-def location(char, code):
-    if char.upper() == "L":
-        return instructions[code][0]
-    else:
-        return instructions[code][1]
-
-
 def main():
     with open(INPUT_FILE, mode="rt") as f:
         data = f.read().splitlines()
@@ -32,10 +25,12 @@ def main():
     x = 0
     while new_instruction != 'ZZZ':
         cmd_num = x % len(command_str)
-        new_instruction = location(command_str[cmd_num], new_instruction)
+        if command_str[cmd_num] == "L":
+            new_instruction = instructions[new_instruction][0]
+        else:
+            new_instruction = instructions[new_instruction][1]
         x += 1
     print(f'total: {x}')
-
     # logger.debug(data)
 
 
